@@ -1,0 +1,11 @@
+.primer-elemento{
+    display:inline-block;
+    overflow-x: scroll;
+}
+
+.titulo-blog{
+    margin-top: 50px;
+    margin-left: 120px;
+    margin-bottom: 50px;
+    text-align: center;
+}

@@ -1,0 +1,30 @@
+
+
+#contenedor-cartas{
+    margin-bottom: 50px;
+}
+
+.card-text{
+    text-align: center;  
+}
+
+.principal-personajes{
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+#boton-personajes{
+    margin: auto;
+    display: flex;
+}
+
+.card-body{
+    margin: auto;
+    display: flex;
+    flex-direction: column; 
+    border-width: 5px;
+    border:  1px solid black;
+    width: 200px;
+    height: 150px;
+  
+}
