@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/comicCard.css";
 import { AppContext } from "../store/appContext";
 
-const ComicCard = ({name, uid}) => {
+const ComicCardPersonajes = ({name, uid}) => {
   
   const {actions} = useContext(AppContext);
 
@@ -17,17 +17,17 @@ const ComicCard = ({name, uid}) => {
           bulk of the card's content.
         </p>
         <Link
-          to={`/${uid}/detail`}
+          to={`personaje/${uid}/detail`}
           className="btn btn-dark"
           id="boton-personajes"
         >
           Ver más
         </Link>
-        <button type="button" className="add-favoritos btn btn-light" onClick={() => actions.agregarFavoritos({uid, name})}>Add Favoritos</button>
+        <button type="button" className="add-favoritos btn btn-light" onClick={() => actions.agregarFavoritos({uid, name, type:"personaje"})}>Add Favoritos</button>
 
       </div>
     </div>
   );
 };
 
-export default ComicCard;
+export default ComicCardPersonajes;

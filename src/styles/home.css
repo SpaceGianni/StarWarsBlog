@@ -1,11 +1,20 @@
-.primer-elemento{
-    display:inline-block;
-    overflow-x: scroll;
+#root{
+    width: 100vw;
+    height: 100vh;
 }
 
 .titulo-blog{
-    margin-top: 50px;
-    margin-left: 120px;
+    margin-top: 70px;
+    margin-left: 114px;
+    margin-right: 90px;
     margin-bottom: 50px;
     text-align: center;
+}
+
+#carouselExampleCaptions{
+    width: 80vw;
+    height: 70vh;
+    object-fit: cover;
+    justify-content: center;
+    margin: auto;
 }

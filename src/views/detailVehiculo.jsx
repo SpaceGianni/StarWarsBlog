@@ -1,18 +1,17 @@
 import React, { useContext, useEffect } from "react";
-import "../styles/detailPersonajes.css";
 import { AppContext } from "../store/appContext";
 import { useParams } from "react-router-dom";
 
-const DetailPersonaje = () => {
+const DetailVehiculo = () => {
   const { uid } = useParams();
   const { store, actions } = useContext(AppContext);
 
   useEffect(() => {
-    actions.getPersonajeById(`https://www.swapi.tech/api/people/${uid}`);
+    actions.getVehiculoById(`https://www.swapi.tech/api/vehicles/${uid}`);
   }, []);
 
   useEffect(() => {
-    actions.getPersonajeById(`https://www.swapi.tech/api/people/${uid}`);
+    actions.getVehiculoById(`https://www.swapi.tech/api/vehicles/${uid}`);
   }, [uid]);
 
   return (
@@ -23,7 +22,7 @@ const DetailPersonaje = () => {
         alt="..."
       />
       <div className="card-body">
-        <h5 className="card-title">{store.personaje?.result?.properties?.name}</h5>
+        <h5 className="card-title">{store.vehiculo?.result?.properties?.name}</h5>
         <p className="card-text">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
           deserunt harum, natus odio sequi delectus ea velit praesentium, sit,
@@ -33,29 +32,21 @@ const DetailPersonaje = () => {
           <br />
           Algunos datos: <br />
           <ul>
-            <li><i>Año de nacimiento:</i>{store.personaje?.result?.properties?.birth_year}</li>
-            <li><i>Color de ojos:</i>{store.personaje?.result?.properties?.eye_color} </li>
-            <li><i>Género:</i> {store.personaje?.result?.properties?.gender} </li>
-            <li><i>Altura:</i>{store.personaje?.result?.properties?.height}  </li>
-            <li><i>Color de piel:</i>{store.personaje?.result?.properties?.skin_color}  </li>
+            <li><i>Modelo:</i>{store.vehiculo?.result?.properties?.model}</li>
+            <li><i>Clase:</i>{store.vehiculo?.result?.properties?.vehicle_class} </li>
+            <li><i>Tripulación:</i> {store.vehiculo?.result?.properties?.crew} </li>
+            <li><i>Longitud:</i>{store.vehiculo?.result?.properties?.length}  </li>
+            <li><i>Costo:</i>{store.vehiculo?.result?.properties?.cost_in_credits}  </li>
           </ul>
         </p>
         <p className="card-text">
-          <small className="text-muted">{store.personaje?.result?.properties?.uid}</small>
+          <small className="text-muted">{store.vehiculo?.result?.properties?.uid}</small>
         </p>
       </div>
     </div>
   );
 };
 
-DetailPersonaje.defaultProps = {
-  uid: "00123",
-  name: "Alien",
-  birth_year: "2000BC",
-  eye_color: "blue",
-  gender: "Something",
-  height: "2m",
-  skin_color: "transparent",
-};
 
-export default DetailPersonaje;
+
+export default DetailVehiculo;

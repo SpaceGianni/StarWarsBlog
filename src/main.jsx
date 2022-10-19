@@ -5,27 +5,37 @@ import Personajes from "./views/personajes";
 import Planetas from "./views/planetas";
 import Vehiculos from "./views/vehiculos";
 import Notfound from "./views/notfound";
-import Detail from "./views/detail";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes,useParams  } from 'react-router-dom';
+import injectContext from "./store/appContext";
+import DetailPersonaje from "./views/detailPersonajes";
+import DetailPlaneta from "./views/detailPlaneta";
+import DetailVehiculo from "./views/detailVehiculo";
+
 
 
 const Main = () =>{
-    const apiURL = "https://www.swapi.tech/api";
+    
+
     return (
         <>
+       
          <BrowserRouter>
         <Navbar/>
         <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/:uid/detail" element={<Detail/>} />
+            <Route path="/vehiculo/:uid/detail" element={<DetailVehiculo />} />
+            <Route path="/personaje/:uid/detail" element={<DetailPersonaje />} />
+            <Route path="/planeta/:uid/detail" element={<DetailPlaneta />} />
             <Route path="/personajes" element={<Personajes/>} />
             <Route path="/planetas" element={<Planetas/>} />
             <Route path="/vehiculos" element={<Vehiculos/>} />
+            <Route path="/" element={<Home/>} />
             <Route path="*" element={<Notfound/>} />
         </Routes>
         </BrowserRouter>
+        
+       
         </>
     )
 }
 
-export default Main;
+export default injectContext(Main);

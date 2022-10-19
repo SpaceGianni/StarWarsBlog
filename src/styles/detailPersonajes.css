@@ -1,4 +1,6 @@
 .contenedor-general{
+    width: 50vw;
+    margin: auto;
     margin-top: 50px;
 }
 
@@ -6,3 +8,4 @@ img {
     height: 200px;
     object-fit: cover;
 }
+

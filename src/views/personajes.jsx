@@ -1,40 +1,29 @@
-import React, { useEffect, useState } from "react";
-import ComicCard from "../componentes/comicCard";
+import React, {useContext } from "react";
+import "../styles/personajes.css";
+import { AppContext } from "../store/appContext";
+import ComicCardPersonajes from "./comicCardPersonajes";
 
 const Personajes = () => {
-  const urlPersonajes = "https://www.swapi.tech/api/people/"; //URL especifica para descargar info de los personajes
-  const [personajes, setPersonajes] = useState(null); //variable que guardará la info de los personajes
 
-  useEffect(() => {
-    getPersonajes();
-  }, []);
 
-  const getPersonajes = async () => {
-    try {
-      const response = await fetch(urlPersonajes);
-      console.log(response);
-      const { results } = await response.json();
-      setPersonajes(results);
-      console.log(results);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const {store} = useContext(AppContext);
 
   return (
     <>
+    <div className="principal-personajes d-fluid">
       <h1>Personajes</h1>
-      <div className="container">
-        {!!personajes &&
-          personajes.length > 0 &&
-          personajes.map(({ name, uid }) => {
+      <div className="row">  
+        {!! store.personajes &&
+          store.personajes.results.length > 0 &&
+          store.personajes.results.map(({ name, uid }) => {
             return (
-              <div className="col-md-3" key={uid}>
-                <ComicCard name={name} uid={uid} />
+              <div className="col-md-3" key={uid} id="contenedor-cartas">
+                <ComicCardPersonajes name={name} uid={uid} />
               </div>
-            );
+            )
           })}
         ;
+      </div>
       </div>
     </>
   );
